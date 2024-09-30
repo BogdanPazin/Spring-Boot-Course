@@ -33,10 +33,10 @@ public class AopdemoApplication {
 		List<Account> accounts = null;
 
 		try{
-			// SIMULIRAM EXCEPTION THROW, AKO JE TRUE ONDA NEKA BACI
+			
 			boolean flag = false;
 
-			accounts = accountDAO.findAccounts(flag); //ASPECT CE U OVOJ LINIJI DA DOBIJE REZULTAT METODE
+			accounts = accountDAO.findAccounts(flag); 
 		}
 		catch (Exception exception){
 			System.out.println("Main program: ... caught exception: " + exception);
@@ -51,10 +51,10 @@ public class AopdemoApplication {
 		List<Account> accounts = null;
 
 		try{
-			// SIMULIRAM EXCEPTION THROW, AKO JE TRUE ONDA NEKA BACI
+			
 			boolean flag = true;
 
-			accounts = accountDAO.findAccounts(flag); //ASPECT CE U OVOJ LINIJI DA DOBIJE REZULTAT METODE
+			accounts = accountDAO.findAccounts(flag); 
 		}
 		catch (Exception exception){
 			System.out.println("Main program: ... caught exception: " + exception);
@@ -65,7 +65,7 @@ public class AopdemoApplication {
 	}
 
 //	private void demoAfterReturningAdvice(AccountDAO accountDAO) {
-//		List<Account> accounts = accountDAO.findAccounts(); //ASPECT CE U OVOJ LINIJI DA DOBIJE REZULTAT METODE
+//		List<Account> accounts = accountDAO.findAccounts(); 
 //		System.out.println("---Main program: demoAfterReturningAdvice---");
 //		System.out.println("The accounts: " + accounts);
 //	}
