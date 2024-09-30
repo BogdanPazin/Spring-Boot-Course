@@ -41,15 +41,6 @@ public class EmployeeController {
     public String saveEmployee(@ModelAttribute("employee") Employee employee){
         employeeService.save(employee);
 
-        //sa redirect onemogucavam visestruko ubacivanje podataka u bazu u slucaju
-        //da korisnik vise puta klikne refresh
-
-
-        /*
-        !!!!! OBRATI PAZNJU !!!!!!
-
-        OVDE NISI PREUSMERIO NA HTML FAJL VEC NA ODREDJENI URL
-         */
         return "redirect:/employees/list";
     }
 
@@ -66,11 +57,6 @@ public class EmployeeController {
     public String delete(@RequestParam("employeeId") int theId){
         employeeService.deleteById(theId);
 
-        /*
-        !!!!! OBRATI PAZNJU !!!!!!
-
-        OVDE NISI PREUSMERIO NA HTML FAJL VEC NA ODREDJENI URL
-         */
         return "redirect:/employees/list";
     }
 }
