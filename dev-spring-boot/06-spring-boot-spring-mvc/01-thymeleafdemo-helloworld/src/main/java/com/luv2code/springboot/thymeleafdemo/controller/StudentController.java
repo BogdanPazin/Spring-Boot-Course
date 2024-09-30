@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 public class StudentController {
 
-    @Value("${countries}") //mora da bude isto kao naziv u application.properties, kako bi ubacilo odgovarajuce vrednosti u listu
+    @Value("${countries}")
     List<String> countries;
 
     @Value("${languages}")
@@ -36,7 +36,6 @@ public class StudentController {
     }
 
     @PostMapping("/processStudentForm")
-                     //mora da bude isti naziv za anotaciju kao i iz forme i iz samog atributa
     public String processForm(@ModelAttribute("student") Student student){
 
         System.out.println("Student: " + student.getFirstName() + " " + student.getLastName() + ", country: " + student.getCountry() + ", favorite programming language is " + student.getLanguage());
