@@ -16,10 +16,6 @@ public class CruddemoApplication {
 		SpringApplication.run(CruddemoApplication.class, args);
 	}
 
-	//ovo je za kreiranje command line aplikacije
-	//preko koje se radi hibernate/jpa
-
-	//ovaj deo koda ce se izvrsiti nakon sto se svi spring bean-ovi ucitaju
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		return runner -> {
