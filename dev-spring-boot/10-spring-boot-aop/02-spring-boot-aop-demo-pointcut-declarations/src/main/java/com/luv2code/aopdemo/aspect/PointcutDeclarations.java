@@ -3,8 +3,7 @@ package com.luv2code.aopdemo.aspect;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 
-@Aspect // AKO IMAM SAMO POINTCUT EXPRESSIONS ONDA JE OVA ANOTACIJA OPCIONALNA
-        // MORA DA SE PISE AKO IMAM I ADVICE-OVE
+@Aspect
 
 public class PointcutDeclarations {
     @Pointcut("execution(public * com.luv2code.aopdemo.dao.*.*(..))")
@@ -22,7 +21,6 @@ public class PointcutDeclarations {
 
     }
 
-    // KOMBINACIJA POINTCUT DECLARATION-OVA, GDE CE SE IGNORISATI SAMO GETERI I SETERI
     @Pointcut("forDaoPackage() && !(forGetters() || forSetters())")
     public void excludeGetterAndSetter(){
 
