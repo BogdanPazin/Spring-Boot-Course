@@ -16,7 +16,6 @@ public class Customer {
     private Integer freePasses;
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits")
-    //anotacija Pattern mora da bude na stringu, ne moze na int
     private String postalCode;
 
     @CourseCode(value = "TOP", message = "must start with TOP")
