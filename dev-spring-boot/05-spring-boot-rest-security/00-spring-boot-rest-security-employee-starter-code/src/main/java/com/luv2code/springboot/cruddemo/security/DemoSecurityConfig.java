@@ -16,32 +16,16 @@ import javax.sql.DataSource;
 
 @Configuration
 public class DemoSecurityConfig {
-
-    /*
-        POSTO SAM OVDE NAPRAVIO KORISNIKE, SPRING BOOT NECE DA KORISTI DEFAULT-NE PODATKE
-        ZA LOGOVANJE IZ APPLICATION.PROPERTIES VEC CE DA KORISTI PODATKE ODAVDE
-     */
-
-
-
-    // omogucavam konfiguraciji da koristi jdbc, tako da se poveze sa bazom
     @Bean
     public UserDetailsManager userDetailsManager(DataSource dataSource){
-        // sam datasource je generisao spring boot
 
         JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
 
-        /*
-        OVAJ KOD JE POTREBAN JER TAKO UPUCUJEM SPRING SECURITY-JU KAKO DA NALAZI USER-E
-        I KAKO DA NALAZI ODGOVARAJUCI ROLE PREKO CUSTOM TABELA I KOLONA
-        u query-ju znak ? ce se iz url-a preneti, jer se u url-u nalazi tacan id dobijen preko login forme
-         */
         jdbcUserDetailsManager.setUsersByUsernameQuery("SELECT user_id, pw, active FROM members WHERE user_id=?");
 
         jdbcUserDetailsManager.setAuthoritiesByUsernameQuery("SELECT user_id, role FROM roles WHERE user_id=?");
 
         return jdbcUserDetailsManager;
-        // sa ovim ce da koristi jdbc sa poslatim datasource-om
     }
 
     @Bean
@@ -53,11 +37,8 @@ public class DemoSecurityConfig {
                         .requestMatchers(HttpMethod.PUT, "/api/employees/**").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.DELETE, "/api/employees/**").hasRole("ADMIN")
         );
-
-        // ukazujem da koristi obicnu http autentifikaciju
         httpSecurity.httpBasic(Customizer.withDefaults());
 
-        //onemogucavam csrf (za ovakvu aplikaciju koja nije za javnost ne mora da se koristi)
         httpSecurity.csrf(csrf -> csrf.disable());
 
         return httpSecurity.build();
