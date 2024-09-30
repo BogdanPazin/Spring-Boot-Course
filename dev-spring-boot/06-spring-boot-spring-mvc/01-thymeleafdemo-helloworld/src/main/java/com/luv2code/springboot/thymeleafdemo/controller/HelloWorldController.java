@@ -21,7 +21,6 @@ public class HelloWorldController {
     }
 
     @PostMapping("processFormVersionThree")
-                            //pomocu anotacije se cita podatak iz forme
     public String upperCase(@RequestParam("studentName") String name, Model model){
 
         name = name.toUpperCase();
