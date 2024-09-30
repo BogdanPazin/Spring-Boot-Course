@@ -24,7 +24,6 @@ public class CustomerController {
     }
 
     @PostMapping("/processForm")
-    //VALID anotacija ce da kaze spring mvc-u da izvrsi validaciju
     public String processForm(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult){
 
         System.out.println("Last name: |" + customer.getLastName() + "|");
@@ -40,14 +39,10 @@ public class CustomerController {
         }
     }
 
-    @InitBinder // OVA ANOTACIJA CE DA IZVRSI SVE PROCESE PRE NEGO STO DODJE DO SAMOG CONTROLLER-A
-    //ODNOSNO OVO CE SE POZVATI ZA SVAKI WEB REQUEST KOJI DOLAZI U CONTROLLER
-    //I POMOCU NJE CU DA ONEMOGUCIM DA SE ZA lastName POSALJU SAMO SPACE-OVI
+    @InitBinder 
     public void initBinder(WebDataBinder dataBinder){
         StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
-        //u konstruktoru je poslat true, s tim ce onda ako su sve space-ovi onda ce da prebaci u NULL
 
         dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
-        //ovaj string trimmer ce da se koristi za string klasu
     }
 }
