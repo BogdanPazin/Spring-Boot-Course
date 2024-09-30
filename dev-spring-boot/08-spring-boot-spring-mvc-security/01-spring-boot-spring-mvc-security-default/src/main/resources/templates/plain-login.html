@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Login Page</title>
+    <style>
+        .failed{color:red}
+    </style>
+</head>
+<body>
+
+<h3>My Custom Login Page</h3>
+
+<form action="#" th:action="@{/authenticateTheUser}" method="POST">
+<!-- SPRING SECURITY CE DA PROCITA PODATKE IZ INPUT POLJA NA OSNOVU GENERICKIH IMENA/name: username, password   -->
+
+
+<!-- OVO JE ZA PRIKAZIVANJE ERROR MESSAGE-A   -->
+    <div th:if="${param.error}">
+        <b class="failed">Sorry! You entered invalid username/password</b>
+    </div>
+
+    <p>
+        Username:
+        <input type="text" name="username"/>
+    </p>
+
+    <p>
+        Password:
+        <input type="password" name="password"/>
+    </p>
+
+    <button type="submit">Login</button>
+</form>
+
+</body>
+</html>

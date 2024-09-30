@@ -1,0 +1,44 @@
+package com.luv2code.cruddemo.dao;
+
+import com.luv2code.cruddemo.entity.Course;
+import com.luv2code.cruddemo.entity.Instructor;
+import com.luv2code.cruddemo.entity.InstructorDetail;
+import com.luv2code.cruddemo.entity.Student;
+
+import java.util.List;
+
+public interface AppDAO {
+    void save(Instructor instructor);
+
+    Instructor findInstructorById(int theId);
+
+    void deleteInstructorById(int theId);
+
+    InstructorDetail findInstructorDetailById(int theId);
+
+    void deleteInstructorDetailById(int theId);
+
+    List<Course> findCoursesByInstructorId(int theId);
+
+    Instructor findInstructorByIdJoinFetch(int theId);
+
+    void updateInstructor(Instructor instructor);
+
+    Course findCourseById(int theId);
+
+    void updateCourse(Course course);
+
+    void deleteCourseById(int theId);
+
+    void saveCourse(Course course);
+
+    Course findCourseWithReviewsByCourseId(int theId);
+
+    Course findCourseWithStudentsByCourseId(int theId);
+
+    Student findStudentWithCoursesByStudentId(int theId);
+
+    void updateStudent(Student student);
+
+    void deleteStudentById(int theId);
+}
