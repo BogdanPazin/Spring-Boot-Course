@@ -5,7 +5,7 @@ import com.luv2code.aopdemo.Account;
 import java.util.List;
 
 public interface AccountDAO {
-    // OVDE PISEM BUSINESS METODE
+    
     void addAccount(Account account, boolean vipFlag);
 
     boolean doWork();
