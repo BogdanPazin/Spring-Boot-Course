@@ -9,35 +9,29 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-// ova anotacija je podanotacija od component anotacije
-// omogucava skeniranje komponenti
 @Repository
 public class StudentDAOImplement implements StudentDAO{
 
-    // svaki DAO mora da ima entity manager koji ce da vrsi kontakt sa bazom
     private EntityManager entityManager;
 
-    // radim constructor injection za entity manager-a
     @Autowired
     public StudentDAOImplement(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
     @Override
-    @Transactional // ova anotacija se koristi kada se azurira baza podataka
+    @Transactional
     public void save(Student student) {
-        entityManager.persist(student); //sa ovim se cuva novi student u bazi
+        entityManager.persist(student);
     }
 
     @Override
     public Student findById(int id) {
-                                // prvi parametar je entity klasa a drugi je primary key
         return entityManager.find(Student.class, id);
     }
 
     @Override
     public List<Student> findAll() {
-                                            //u query-jevima se vrednosti odnose na samu entity klasu
         TypedQuery<Student> typedQuery = entityManager.createQuery("FROM Student", Student.class);
 
         List<Student> list = typedQuery.getResultList();
@@ -49,9 +43,7 @@ public class StudentDAOImplement implements StudentDAO{
     public List<Student> findByFirstName(String firstName) {
         TypedQuery<Student> typedQuery = entityManager.createQuery(
                 "FROM Student WHERE firstName=:theData", Student.class);
-                    // u samom query-ju se takav parametar pise sa :
 
-        // ovim sam podesio koja vrednost da se trazi u bazi
         typedQuery.setParameter("theData", firstName);
 
         List<Student> list = typedQuery.getResultList();
