@@ -29,7 +29,6 @@ public class DemoLoggingAspect {
 
     }
 
-    // SAMO CE SE PRIMENJIVATI NA SVE KLASE I SVE METODE U PAKETIMA: CONTROLLER, SERVICE I DAO
     @Pointcut("forController() || forService() || forDAO()")
     public void combineControllerServiceDAO(){
 
@@ -43,7 +42,6 @@ public class DemoLoggingAspect {
 
         myLogger.info("======>>> in @Before for method: " + method);
 
-        // DOBIJAM PARAMETRE METODA
         Object[] args = joinPoint.getArgs();
 
         for(Object obj : args){
