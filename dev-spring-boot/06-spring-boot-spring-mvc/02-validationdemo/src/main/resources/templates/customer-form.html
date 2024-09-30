@@ -21,7 +21,6 @@
   Last name (*):
   <input type="text" th:field="${customer.lastName}"/>
 
-<!-- U SLUCAJU DA IMA GRESKE OVO JE ZA PRIKAZIVANJE PORUKE -->
   <span th:if="${#fields.hasErrors('lastName')}" th:errors="${customer.lastName}" class="error">
 
   </span>
