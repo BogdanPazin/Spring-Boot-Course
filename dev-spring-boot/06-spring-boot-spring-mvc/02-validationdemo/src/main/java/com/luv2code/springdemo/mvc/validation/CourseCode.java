@@ -10,12 +10,10 @@ import java.lang.annotation.Target;
 
 @Constraint(validatedBy = CourseCodeConstraintValidator.class)
 @Target({ElementType.METHOD, ElementType.FIELD})
-@Retention(RetentionPolicy.RUNTIME) //koliko dugo ce se cuvati anotacija ili koristiti
+@Retention(RetentionPolicy.RUNTIME)
 public @interface CourseCode {
-    //definisem parametar anotacije, gde ako korisnik ne posalje nista onda ce po default-u da prosledi LUV
     public String value() default "LUV";
 
-    //takodje parametar anotacije, za poruku mogu da posalju svoju, ali ako ne posalju onda se salje ova
     public String message() default "must start with LUV";
 
     public Class<?>[] groups() default {};
