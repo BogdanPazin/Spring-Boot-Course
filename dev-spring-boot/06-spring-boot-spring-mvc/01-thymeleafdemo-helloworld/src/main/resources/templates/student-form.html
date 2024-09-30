@@ -5,16 +5,14 @@
     <title>Student Registration Form</title>
 </head>
 <body>
-<!--th:field SLUZI ZBOG POVEZIVANJA SA SAMIM OBJEKTOM(ovaj slucaj je Student)-->
 
   <h3>Student Registration Form</h3>
-                                <!--KORISTI SE IME ATRIBUTA IZ CONTROLLER-A-->
   <form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
     First name: <input type="text" th:field="${student.firstName}" />
 
     <br><br>
 
-    Last name: <input type="text" th:field="*{lastName}" /><!-- ZA FIELD JE KORISCEN KRACI ZAPIS  -->
+    Last name: <input type="text" th:field="*{lastName}" />
 
     <br><br>
 
@@ -25,10 +23,6 @@
 <!--        <option th:value="France">France</option>-->
 <!--        <option th:value="Spain">Spain</option>-->
 
-<!--SA th:each CE DA PRODJE FOR PETLJOM KROZ SVAKU VREDNOST U LIST
-PRI CEMU JE tempCountry NAZIV KOJI CE DA SE KORISTI ZA TRENUTNU ZEMLJU
-I NAZIV countries JE NAZIV KOJI JE DAT SAMOM ATRIBUTU KADA JE DODAT MODELU
--->
         <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"></option>
       </select>
 
