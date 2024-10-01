@@ -15,7 +15,6 @@ public class CruddemoApplication {
 		SpringApplication.run(CruddemoApplication.class, args);
 	}
 
-	//ovaj deo se izvrsava nakon sto se svi bean-ovi ucitaju
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO){
 
@@ -81,7 +80,6 @@ public class CruddemoApplication {
 		instructor.setInstructorDetail(instructorDetail);
 
 		System.out.println("Saving instructor: " + instructor);
-		// ovo ce takodje da sacuva i instructorDetails objekat
 		appDAO.save(instructor);
 		System.out.println("Done!");
 	}
