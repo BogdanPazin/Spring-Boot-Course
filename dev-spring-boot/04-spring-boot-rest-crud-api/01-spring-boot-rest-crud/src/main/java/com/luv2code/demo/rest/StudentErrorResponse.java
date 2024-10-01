@@ -1,6 +1,5 @@
 package com.luv2code.demo.rest;
 
-// ova klasa se vraca korisniku u obliku json teksta u slucaju error-a
 public class StudentErrorResponse {
     private int status;
     private String message;
