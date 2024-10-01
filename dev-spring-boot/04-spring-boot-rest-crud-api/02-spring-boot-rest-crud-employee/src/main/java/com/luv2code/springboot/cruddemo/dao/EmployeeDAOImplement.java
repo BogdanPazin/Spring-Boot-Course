@@ -36,11 +36,6 @@ public class EmployeeDAOImplement implements EmployeeDAO{
     @Override
     public Employee saveEmployee(Employee employee) {
         Employee emp = entityManager.merge(employee);
-        /*
-            merge metod radi tako sto prvo proverava da li je id==0
-            u slucaju da jeste onda radi save/insert
-            a ako nije id==0 onda radi update
-         */
 
         return emp;
     }
