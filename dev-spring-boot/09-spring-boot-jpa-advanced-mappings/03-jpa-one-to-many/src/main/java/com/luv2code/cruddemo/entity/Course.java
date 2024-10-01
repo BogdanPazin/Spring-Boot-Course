@@ -13,11 +13,8 @@ public class Course {
     @Column(name = "title")
     private String title;
 
-    //podesio sam cascade tako da ako obrisem course, ne brisem instruktora koji je bio vezan za taj kurs
-    //vise kurseva moze biti povezano sa jednim instruktorom
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH})
-    // ovo je naziv kolone u samoj tabeli course, kako bi course pronasao tacnog instruktora
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
