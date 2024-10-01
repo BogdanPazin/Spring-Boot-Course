@@ -22,18 +22,14 @@ public class Instructor {
     @Column(name = "email")
     private String email;
 
-    // cascade ce se odnositi za cuvanje, brisanje, ...
-    // azurirace odgovarajucu klasu sa ovom sa kojom je povezana (primenice istu operaciju)
     @OneToOne(cascade = CascadeType.ALL)
-    // za joinColumn se name odnosi na ime kolone u samoj tabeli
     @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
 
-    // instruktor moze da ima vise kurseva
     @OneToMany(mappedBy = "instructor",
             cascade = {CascadeType.DETACH, CascadeType.MERGE,
                     CascadeType.PERSIST, CascadeType.REFRESH},
-            fetch = FetchType.LAZY) // default za OneToMany vezu je lazy, sa EAGER ce uz instruktora da vrati i sve kurseve
+            fetch = FetchType.LAZY)
     private List<Course> courses = new ArrayList<>();
 
     public Instructor() {
@@ -94,7 +90,6 @@ public class Instructor {
         this.courses = courses;
     }
 
-    // metod za kreiranje bidirectional veze
     public void addCourse(Course course){
         courses.add(course);
         course.setInstructor(this);
