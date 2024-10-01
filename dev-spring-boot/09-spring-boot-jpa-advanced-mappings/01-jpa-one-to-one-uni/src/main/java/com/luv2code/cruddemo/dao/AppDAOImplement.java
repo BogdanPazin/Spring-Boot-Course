@@ -6,7 +6,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository // ovo je da bi spring nasao komponentu tokom skeniranja
+@Repository
 public class AppDAOImplement implements AppDAO {
 
     private EntityManager entityManager;
@@ -25,8 +25,6 @@ public class AppDAOImplement implements AppDAO {
     @Override
     public Instructor findInstructorById(int theId) {
 
-        // ovo ce da vrati i instructor details jer je default ponasanje @OneToOne
-        // postavljeno na eager
         return entityManager.find(Instructor.class, theId);
     }
 
@@ -35,7 +33,6 @@ public class AppDAOImplement implements AppDAO {
     public void deleteInstructorById(int theId) {
         Instructor instructor = entityManager.find(Instructor.class, theId);
 
-        // ovo ce onda da obrise i instructor details objekat jer je cascade postavljen na ALL
         entityManager.remove(instructor);
     }
 }
