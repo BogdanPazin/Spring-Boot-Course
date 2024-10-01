@@ -195,6 +195,9 @@ public class CruddemoApplication {
 
 	private void createInstructor(AppDAO appDAO) {
 
+//		Instructor instructor = new Instructor("Chad", "Darby", "darby@gmail.com");
+//		InstructorDetail instructorDetail = new InstructorDetail("http://www.youtube.com/chaddarby", "LUV 2 CODE!!!");
+
 		Instructor instructor = new Instructor("Madhu", "Patel", "madhu@gmail.com");
 
 		InstructorDetail instructorDetail = new InstructorDetail("http://www.youtube.com/chaddarby", "GUITAR!!!");
