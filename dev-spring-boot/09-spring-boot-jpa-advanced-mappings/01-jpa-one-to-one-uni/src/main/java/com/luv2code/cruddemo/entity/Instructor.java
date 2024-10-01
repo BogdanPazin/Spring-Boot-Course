@@ -19,8 +19,6 @@ public class Instructor {
     @Column(name = "email")
     private String email;
 
-    // cascade ce se odnositi za cuvanje, brisanje, ...
-    // azurirace odgovarajucu klasu sa ovom sa kojom je povezana (primenice istu operaciju)
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
