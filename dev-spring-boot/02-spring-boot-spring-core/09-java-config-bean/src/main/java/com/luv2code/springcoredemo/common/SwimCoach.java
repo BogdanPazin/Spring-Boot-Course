@@ -1,8 +1,5 @@
 package com.luv2code.springcoredemo.common;
 
-//
-// NIJE STAVLJENA ANOTACIJA @COMPONENT
-//
 public class SwimCoach implements Coach{
 
     public SwimCoach() {
