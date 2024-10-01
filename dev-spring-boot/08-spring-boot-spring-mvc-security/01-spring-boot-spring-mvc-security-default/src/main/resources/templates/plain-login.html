@@ -12,10 +12,7 @@
 <h3>My Custom Login Page</h3>
 
 <form action="#" th:action="@{/authenticateTheUser}" method="POST">
-<!-- SPRING SECURITY CE DA PROCITA PODATKE IZ INPUT POLJA NA OSNOVU GENERICKIH IMENA/name: username, password   -->
 
-
-<!-- OVO JE ZA PRIKAZIVANJE ERROR MESSAGE-A   -->
     <div th:if="${param.error}">
         <b class="failed">Sorry! You entered invalid username/password</b>
     </div>
