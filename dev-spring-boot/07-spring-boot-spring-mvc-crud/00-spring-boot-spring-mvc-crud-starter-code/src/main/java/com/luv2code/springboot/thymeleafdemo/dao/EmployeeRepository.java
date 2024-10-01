@@ -7,8 +7,5 @@ import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    // that's it ... no need to write any code LOL!
-
-    //OVDE PRAVIM METOD ZA SPRING DATA JPA DA SORTIRA KORISNIKE PO PREZIMENU
     public List<Employee> findAllByOrderByLastName();
 }
