@@ -8,9 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-// ova anotacija je jos jedna podanotacija od @Component
-// sa njom se omogucava component scanning od strane spring boot-a
-// ova klasa se nalazi izmedju controller-a i DAOImplement-a
 @Service
 public class EmployeeServiceImplement implements EmployeeService{
     private EmployeeRepository employeeRepository;
@@ -41,13 +38,11 @@ public class EmployeeServiceImplement implements EmployeeService{
     }
 
     @Override
-    // ne mora da se pise transactional jer jpa repository radi s tim
     public Employee saveEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }
 
     @Override
-    // ne mora da se pise transactional jer jpa repository radi s tim
     public void deleteById(int id) {
         employeeRepository.deleteById(id);
     }
