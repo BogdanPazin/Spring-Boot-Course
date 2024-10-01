@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
     private Coach myCoach;
 
-    // anotacija @autowired ukazuje springu da moze ovo da se koristi za injection
-    // ako imam samo jedan konstruktor onda je anotacija @autowired opcionalna
-
     @Autowired
     public DemoController(@Qualifier("tennisCoach") Coach myCoach) {
         //ako koristim primary anotaciju, ne moram da imam qualifier u listi parametara za konstruktor
