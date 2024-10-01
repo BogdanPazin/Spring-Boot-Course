@@ -16,7 +16,6 @@ public class StudentRestController {
     private List<Student> theStudents;
 
     @PostConstruct
-    // ono sto je u @PostConstruct metodi ce se izvrsiti samo jednom
     public void loadData(){
         theStudents = new ArrayList<>();
 
@@ -35,9 +34,6 @@ public class StudentRestController {
     }
 
     @GetMapping("/students/{studentId}")
-    // sa ovom anotacijom se u url prenosi neka vrednost
-    // i posto hocu u metodi da koristim tu vrednost kao parametar
-    // onda se koristi @PathVariable gde ime parametra mora da se poklopi sa onim sto je u url-u
     public Student getStudentById(@PathVariable int studentId){
         if(studentId >= theStudents.size() || studentId < 0){
             throw new StudentNotFoundException("Student not found with id " + studentId);
