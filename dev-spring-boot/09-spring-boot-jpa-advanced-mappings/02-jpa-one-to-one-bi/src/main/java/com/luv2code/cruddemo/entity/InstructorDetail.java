@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Table(name = "Instructor_detail")
 public class InstructorDetail {
     @Id
-    // generated value je tipa identity jer je autoincrement
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
@@ -18,11 +17,6 @@ public class InstructorDetail {
     private String hobby;
 
 
-
-    // OVA ANOTACIJA SLUZI DA BI SE OMOGUCIO BIDIRECTION RELATIONSHIP
-    // OVO KAZE HIBERNATE-U DA KORISTI instructorDetail ATRIBUT IZ KLASE instructor
-    // DA BI ZNAO KAKO DA PRONADJE ODGOVARAJUCI instructor ZA ODGOVARAJUCU KLASU instructorDetail
-    // JER CE DA KORISTI JOINCOLLUMN IZ KLASE constructor
     @OneToOne(mappedBy = "instructorDetail",
             cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
                     CascadeType.REFRESH})
