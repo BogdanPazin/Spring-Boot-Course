@@ -16,7 +16,6 @@ public class Employee {
     @Column(name="email")
     private String email;
 
-    // PRAZAN KONSTRUKTOR JE OBAVEZAN!!!!!!!!!!!!!
     public Employee() {
 
     }
