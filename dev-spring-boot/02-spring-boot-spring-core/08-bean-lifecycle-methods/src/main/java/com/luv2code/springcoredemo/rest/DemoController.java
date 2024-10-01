@@ -12,7 +12,6 @@ public class DemoController {
 
     @Autowired
     public DemoController(@Qualifier("tennisCoach") Coach myCoach) {
-        //ako koristim primary anotaciju, ne moram da imam qualifier u listi parametara za konstruktor
 
         this.myCoach = myCoach;
         System.out.println("Creating demo controller");
