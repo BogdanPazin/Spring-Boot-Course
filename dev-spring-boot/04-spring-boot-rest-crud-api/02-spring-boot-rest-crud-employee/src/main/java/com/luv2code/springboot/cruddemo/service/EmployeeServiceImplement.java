@@ -8,9 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-// ova anotacija je jos jedna podanotacija od @Component
-// sa njom se omogucava component scanning od strane spring boot-a
-// ova klasa se nalazi izmedju controller-a i DAOImplement-a
 @Service
 public class EmployeeServiceImplement implements EmployeeService{
     private EmployeeDAO employeeDAO;
