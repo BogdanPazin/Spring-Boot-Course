@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Table(name = "Instructor_detail")
 public class InstructorDetail {
     @Id
-    // generated value je tipa identity jer je autoincrement
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
