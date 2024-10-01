@@ -16,8 +16,6 @@
   <p class="h4 mb-4">Save Employee</p>
 
   <form action="#" th:action="@{/employees/save}" th:object="${employee}" method="POST">
-<!-- dodaje se skriveni input field kako bi se izvrsavao update -->
-<!-- ovo je potrebno da bi znao koji se korisnik azurira -->
       <input type="hidden" th:field="${employee.id}"/>
 
       <input type="text" th:field="${employee.firstName}" class="form-control mb-4 w-25" placeholder="First Name"/>
