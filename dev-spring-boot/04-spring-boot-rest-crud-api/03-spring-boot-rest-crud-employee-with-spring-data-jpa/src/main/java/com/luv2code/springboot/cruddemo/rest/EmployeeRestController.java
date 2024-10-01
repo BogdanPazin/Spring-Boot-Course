@@ -12,10 +12,6 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    /*
-        POSTO SAM UBACIO SERVICE U APLIKACIJU, CONTROLLER NECE VISE DA KORISTI DAO
-        VEC CE DA KORISTI SERVICE KOJI KORISTI TAJ DAO
-     */
     private EmployeeService employeeService;
 
     @Autowired
@@ -41,11 +37,6 @@ public class EmployeeRestController {
 
     @PostMapping("/employees")
     public Employee addEmployee(@RequestBody Employee employee){
-        // koristi se @RequestBody anotacija zbog toga jer se podaci za novog employee-a
-        // salju kao json tekst, i pomocu ove anotacije ce se povezati ti podaci sa ovim poslatim objektom
-
-        // u slucaju da se u json tekstu posalje id, podesava se da on bude 0
-        // tako da izazove save (a ne update) u metodi merge
 
         employee.setId(0);
         Employee newEmployee = employeeService.saveEmployee(employee);
