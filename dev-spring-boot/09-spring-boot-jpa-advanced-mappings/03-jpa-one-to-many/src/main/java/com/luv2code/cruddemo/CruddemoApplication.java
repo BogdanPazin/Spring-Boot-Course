@@ -18,7 +18,6 @@ public class CruddemoApplication {
 		SpringApplication.run(CruddemoApplication.class, args);
 	}
 
-	//ovaj deo se izvrsava nakon sto se svi bean-ovi ucitaju
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO){
 
@@ -94,7 +93,6 @@ public class CruddemoApplication {
 
 		System.out.println("Finding the instructor with id: " + theId);
 
-		// ovaj metod vraca instruktora sa svim kursevima
 		Instructor instructor = appDAO.findInstructorByIdJoinFetch(theId);
 
 		System.out.println("The instructor: " + instructor);
@@ -107,7 +105,6 @@ public class CruddemoApplication {
 
 		System.out.println("Finding the instructor with id: " + theId);
 
-		// OVAKO VRACA SAMO INSTRUKTORA, JER JE FETCH POSTAVLJEN NA LAZY
 		Instructor instructor = appDAO.findInstructorById(theId);
 
 		System.out.println("The instructor: " + instructor);
@@ -151,7 +148,6 @@ public class CruddemoApplication {
 
 		System.out.println("Saving instructor: " + instructor);
 		System.out.println("The courses: " + instructor.getCourses());
-		// ovo ce da sacuva i kurseve zbog cascade-a
 		appDAO.save(instructor);
 		System.out.println("DONE!");
 	}
@@ -198,9 +194,6 @@ public class CruddemoApplication {
 	}
 
 	private void createInstructor(AppDAO appDAO) {
-//		Instructor instructor = new Instructor("Chad", "Darby", "darby@gmail.com");
-//
-//		InstructorDetail instructorDetail = new InstructorDetail("http://www.youtube.com/chaddarby", "LUV 2 CODE!!!");
 
 		Instructor instructor = new Instructor("Madhu", "Patel", "madhu@gmail.com");
 
@@ -209,7 +202,6 @@ public class CruddemoApplication {
 		instructor.setInstructorDetail(instructorDetail);
 
 		System.out.println("Saving instructor: " + instructor);
-		// ovo ce takodje da sacuva i instructorDetails objekat
 		appDAO.save(instructor);
 		System.out.println("Done!");
 	}
