@@ -22,7 +22,7 @@ public class Student {
     @Column(name = "email")
     private String email;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE,  // JEDAN KURS MOZE IMATI VISE STUDENATA
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, 
             CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "course_student",
                 joinColumns = @JoinColumn(name = "student_id"),
